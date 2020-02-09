@@ -1,0 +1,7 @@
+syntax = "proto3";
+option java_package = "com.atguigu.nio.netty.protobuf";
+option java_outer_classname = "StudentPOJO";
+message Student { // outer class, the real instance that get sent
+    int32 id = 1; // Protobuf type, 1 represent field sequence no.
+    string name = 2;
+}

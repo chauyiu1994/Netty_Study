@@ -19,12 +19,13 @@ public class GroupChatServerHandler extends SimpleChannelInboundHandler<String> 
     private static ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    // triggered immediately after connection is established and SocketChannel is created
+    // triggered immediately after connection is accepted by server and SocketChannel is created
     // add channel to the channelGroup
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
 
         Channel channel = ctx.channel();
+        System.out.println("Handler added for " + channel.remoteAddress());
 
         channelGroup.add(channel);
         // notify other users that a client is connect
